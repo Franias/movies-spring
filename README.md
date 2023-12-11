@@ -27,7 +27,7 @@ Project running in the port: 9191
 
 
 #### Note:
-* You have to create a mysql database named: feirapp
+* You have to create a mysql database named: movie
 * To create, delete and get all movie you need import curl in postman
 
 # movies-spring
