@@ -36,14 +36,14 @@ class MovieServiceTest {
 
     @Test
     void saveMovie() {
-        //Verify if the repository is called when I use the SaveFair Method
+        //Verify if the repository is called when I use the SaveMovie Method
         //also checks if the save method is called with the correct argument
 
         movieService.saveMovie(movie);
-        ArgumentCaptor<Movie> fairArgumentCaptor = ArgumentCaptor.forClass(Movie.class);
-        verify(movieRepository).save(fairArgumentCaptor.capture());
+        ArgumentCaptor<Movie> movieArgumentCaptor = ArgumentCaptor.forClass(Movie.class);
+        verify(movieRepository).save(movieArgumentCaptor.capture());
 
-        Movie captureMovie = fairArgumentCaptor.getValue();
+        Movie captureMovie = movieArgumentCaptor.getValue();
 
         assertThat(captureMovie).isEqualTo(movie);
     }
@@ -62,7 +62,7 @@ class MovieServiceTest {
 
 
     @Test
-    void getFair() {
+    void getMovie() {
         movieService.getMovie(1);
         ArgumentCaptor<Integer> argumentCaptor = ArgumentCaptor.forClass(Integer.class);
         verify(movieRepository).findById(argumentCaptor.capture());
@@ -72,7 +72,7 @@ class MovieServiceTest {
     }
 
     @Test
-    void getAllFairs() {
+    void getAllMovies() {
         movieService.getMovies();
         verify(movieRepository).findAll();
 
